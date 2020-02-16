@@ -3,7 +3,7 @@ import './info.css';
 import bg from '../../img/bg-shape.svg';
 
 
-const Info = () => {
+const Info = (props) => {
     return (
         <section>
             <img src={bg} alt='Background shape' id='bg' />
@@ -14,11 +14,21 @@ const Info = () => {
                 <p>Your data is currently showing in:</p>
                 <div className='buttons'>
                     <div className='btn'>
-                        <button> T </button>
+                    {
+                        props.tempSymbol === 'T' ?
+                        <button className='clicked'>T</button>
+                        :
+                        <button onClick={props.setTempSymbol}>T</button>
+                    }
                         <p>Table</p>
                     </div>
                     <div className='btn'>
-                        <button> C </button>
+                    {
+                        props.tempSymbol === 'C' ?
+                        <button className='clicked'>C</button>
+                        :
+                        <button onClick={props.setTempSymbol}>C</button>
+                    }
                         <p>Chart</p>
                     </div>
                 </div>        
